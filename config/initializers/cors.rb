@@ -17,10 +17,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://main.d22v1by1az8hi2.amplifyapp.com' # ReactアプリのURLを指定（例: 'http://localhost:3000'）
+    origins 'http://localhost:5173' # フロントエンドのURL
     resource '*',
              headers: :any,
-             methods: [:get, :post, :patch, :put, :delete, :options, :head]
+             methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
 

@@ -44,3 +44,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rack-cors'
 
+gem 'stripe'
+
+

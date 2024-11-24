@@ -8,5 +8,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :users
+  # resources :users
+
+  # ユーザー情報用
+  resources :user_infos
+  get '/user_infos/:user_id', to: 'user_infos#show'
+
+  # stripe用   
+  post 'create-checkout-session', to: 'checkout#create'
+  
+  
+
 end

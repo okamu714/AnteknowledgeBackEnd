@@ -34,3 +34,5 @@
 
 # 環境変数ファイル
 .env
+
+/config/credentials/development.key

@@ -2,6 +2,9 @@ require_relative "boot"
 
 require "rails/all"
 
+# require 'dotenv/load' if Rails.env.development? || Rails.env.test?
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -14,7 +17,7 @@ module AnteKnowledgeBackEnd
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks])
+    # config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -28,5 +31,13 @@ module AnteKnowledgeBackEnd
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # CORS設定
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins "http://localhost:5173" # ReactアプリのURL
+    #     resource "*", headers: :any, methods: [:get, :post, :options]
+    #   end
+    # end
   end
 end

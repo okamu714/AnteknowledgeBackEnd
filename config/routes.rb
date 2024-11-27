@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "posts#index"
 
   # resources :users
 
@@ -14,8 +14,23 @@ Rails.application.routes.draw do
   resources :user_infos
   get '/user_infos/:user_id', to: 'user_infos#show'
 
+  # 購入履歴用
+  # resources :purchase_histories
+
+  resources :purchase_histories
+  get 'user_purchase_histories', to: 'purchase_histories#user_purchases'
+
+ 
+  
+
   # stripe用   
-  post 'create-checkout-session', to: 'checkout#create'
+  resources :stripe_sessions, only: [:show]
+  post "/create-checkout-session", to: "checkouts#create_checkout_session"
+  post "/webhook", to: "webhooks#stripe"
+  get '/api/stripe/:id', to: 'stripe_sessions#show_stripe_session'
+  
+
+
   
   
 

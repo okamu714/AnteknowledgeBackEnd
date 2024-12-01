@@ -33,11 +33,13 @@ module AnteKnowledgeBackEnd
     config.api_only = true
 
     # CORS設定
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins "http://localhost:5173" # ReactアプリのURL
-    #     resource "*", headers: :any, methods: [:get, :post, :options]
-    #   end
-    # end
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'https://authcomp.d1awsv4v0mkqab.amplifyapp.com' # フロントエンドのURLを記載
+        resource '*',
+          headers: :any,
+          methods: [:get, :post, :put, :patch, :delete, :options, :head],
+          credentials: true # Cookieが必要なら true
+      end
   end
 end

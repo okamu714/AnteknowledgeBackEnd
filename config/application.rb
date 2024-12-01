@@ -41,5 +41,6 @@ module AnteKnowledgeBackEnd
           methods: [:get, :post, :put, :patch, :delete, :options, :head],
           credentials: true # Cookieが必要なら true
       end
+    end
   end
 end

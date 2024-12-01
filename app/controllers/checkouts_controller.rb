@@ -29,8 +29,8 @@ class CheckoutsController < ApplicationController
           product_name: product_name, # 本の名前
           userId: userId, #amplifyのユーザーId
         },
-        success_url: "http://localhost:5173/succes?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: "http://localhost:5173/cancel"
+        success_url: "https://authcomp.d1awsv4v0mkqab.amplifyapp.com/succes?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "https://authcomp.d1awsv4v0mkqab.amplifyapp.com/cancel"
       )
   
       Rails.logger.info("Checkout session created: #{session.id}")

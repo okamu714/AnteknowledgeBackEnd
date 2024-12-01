@@ -1,4 +1,9 @@
 class UserInfosController < ApplicationController
+  def index
+    user_infos = UserInfo.all
+    render json: user_infos
+  end
+
   # ユーザーを登録する
   def create
     # ユーザーが既に存在するか確認

@@ -15,12 +15,10 @@ module AnteKnowledgeBackEnd
     # CORS設定
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://authcomp.d1awsv4v0mkqab.amplifyapp.com' # フロントエンドのURL
-        resource '*',
-                 headers: :any,
-                 methods: [:get, :post, :put, :patch, :delete, :options, :head],
-                 credentials: false # Cookieが必要な場合はtrueに設定
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
+    
   end # class Application の終了
 end # module AnteKnowledgeBackEnd の終了

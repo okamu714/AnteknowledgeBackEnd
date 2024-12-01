@@ -1,0 +1,8 @@
+version: 1.0
+runtime: ruby27
+build:
+  commands:
+    - bundle install
+    - bundle exec rake db:migrate
+run:
+  command: bundle exec rails server -p 8080

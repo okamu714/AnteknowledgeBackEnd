@@ -19,7 +19,7 @@ module AnteKnowledgeBackEnd
         resource '*',
                  headers: :any,
                  methods: [:get, :post, :put, :patch, :delete, :options, :head],
-                 credentials: true # Cookieが必要なら true
+                 credentials: false # Cookieが必要なら true
       end
     end # Rack::Cors の設定終了
   end # class Application の終了

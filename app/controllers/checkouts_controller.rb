@@ -10,15 +10,14 @@ class CheckoutsController < ApplicationController
       price= params[:price]
       userId= params[:userId]
 
- 
-      session = Stripe::Checkout::Session.create(
+      session = Stripe::Checkout::Session.create({
         payment_method_types: ["card"],
         line_items: [
           {
             price_data: {
               currency: "jpy",
               product_data: { name: product_name },
-              unit_amount: price
+              unit_amount: price.to_i * 100
             },
             quantity: 1
           }
@@ -31,13 +30,13 @@ class CheckoutsController < ApplicationController
         },
         success_url: "https://authcomp.d1awsv4v0mkqab.amplifyapp.com/succes?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: "https://authcomp.d1awsv4v0mkqab.amplifyapp.com/cancel"
-      )
+      })
   
       Rails.logger.info("Checkout session created: #{session.id}")
       render json: { id: session.id }, status: :ok
     rescue => e
       Rails.logger.error("Stripe Error: #{e.message}")
-      render json: { error: "Failed to create Checkout session" }, status: :internal_server_error
+      render json: { error: "Failed to create Checkout session: #{e.message}" }, status: :internal_server_error
     end
   end
   

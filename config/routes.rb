@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   
 
   # stripe用   
-  resources :stripe_sessions, only: [:show]
+  resources :stripe_sessions
   post "/create-checkout-session", to: "checkouts#create_checkout_session"
   post "/webhook", to: "webhooks#stripe"
   get '/api/stripe/:id', to: 'stripe_sessions#show_stripe_session'

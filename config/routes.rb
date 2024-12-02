@@ -20,9 +20,7 @@ Rails.application.routes.draw do
   resources :purchase_histories
   get 'user_purchase_histories', to: 'purchase_histories#user_purchases'
 
- 
   
-
   # stripe用   
   resources :stripe_sessions
   post "/create-checkout-session", to: "checkouts#create_checkout_session"

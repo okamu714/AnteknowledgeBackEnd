@@ -17,11 +17,9 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://authcomp.d1awsv4v0mkqab.amplifyapp.com/' # フロントエンドのURLを指定
+    origins 'https://authcomp.d1awsv4v0mkqab.amplifyapp.com' # フロントエンドのURLを指定
     resource '*',
-    headers: :any,
-    methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
-
-

@@ -5,7 +5,7 @@ class CheckoutsController < ApplicationController
 
   def create_checkout_session
     begin
-      prodct_id = params[:product_id]
+      product_id = params[:product_id]
       product_name = params[:product_name]
       price= params[:price]
       userId= params[:userId]
@@ -25,7 +25,7 @@ class CheckoutsController < ApplicationController
         ],
         mode: "payment",
         metadata: {
-          product_id: prodct_id,  # 商品ID
+          product_id: product_id,  # 商品ID
           product_name: product_name, # 本の名前
           userId: userId, #amplifyのユーザーId
         },

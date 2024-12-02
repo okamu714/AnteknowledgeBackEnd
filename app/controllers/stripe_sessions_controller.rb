@@ -1,7 +1,7 @@
 class StripeSessionsController < ApplicationController
   require 'stripe'
 
-  Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+  Stripe.api_key = ENV['STRIPE_LIVE_SECRET_KEY']
 
   def show_stripe_session
     session_id = params[:id]
